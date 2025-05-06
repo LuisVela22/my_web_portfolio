@@ -1,62 +1,64 @@
 import React from "react";
-import Tilt from "react-tilt";
 import { motion } from "framer-motion";
+import { FaUniversity, FaGraduationCap } from "react-icons/fa";
 
 import { styles } from "../styles";
-import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const ServiceCard = ({ index, title, icon }) => (
-  <Tilt className='xs:w-[250px] w-full'>
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
-      >
-        <img
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
+const studies = [
+  {
+    degree: "Ingeniería en Sistemas Computacionales",
+    institution: "Instituto Politécnico Nacional",
+    period: "Agosto 2022 - Actualidad",
+    icon: <FaUniversity size={30} />,
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    degree: "CECyT 7 - Cuahutémoc",
+    institution: "Instituto Politécnico Nacional",
+    period: "Agosto 2019 - Junio 2022",
+    icon: <FaGraduationCap size={30} />,
+    color: "from-purple-400 to-blue-500",
+  },
+];
 
-        <h3 className='text-white text-[20px] font-bold text-center'>
-          {title}
-        </h3>
+const StudyCard = ({ study, index }) => (
+  <motion.div
+    variants={fadeIn("up", "spring", index * 0.3, 0.75)}
+    className={`bg-gradient-to-br ${study.color} p-[1px] rounded-2xl w-full sm:w-[350px] shadow-xl`}
+  >
+    <div className="bg-[#1d1d2e] rounded-2xl py-6 px-5 h-full glassmorphism text-white">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="bg-white text-black p-2 rounded-full">{study.icon}</div>
+        <h3 className="text-xl font-bold">{study.degree}</h3>
       </div>
-    </motion.div>
-  </Tilt>
+      <p className="text-secondary text-[16px]">{study.institution}</p>
+      <p className="text-sm text-gray-400 mt-2">{study.period}</p>
+    </div>
+  </motion.div>
 );
 
 const About = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <p className={styles.sectionSubText}>Formación Académica</p>
+        <h2 className={styles.sectionHeadText}>Estudios.</h2>
       </motion.div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
+        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
+        He recorrido un camino de formación técnica y profesional que me ha permitido
+        desarrollar habilidades en desarrollo web, programación orientada a objetos
+        y trabajo en equipo.
       </motion.p>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
-        {services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
+      <div className="mt-12 flex flex-wrap gap-10 justify-center">
+        {studies.map((study, index) => (
+          <StudyCard key={index} study={study} index={index} />
         ))}
       </div>
     </>
