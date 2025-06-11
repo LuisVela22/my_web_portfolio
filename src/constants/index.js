@@ -1,29 +1,31 @@
-import {
-  mobile,
-  backend,
-  creator,
-  web,
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
-} from "../assets";
+// import {
+//   mobile,
+//   backend,
+//   creator,
+//   web,
+//   javascript,
+//   typescript,
+//   html,
+//   css,
+//   reactjs,
+//   redux,
+//   tailwind,
+//   nodejs,
+//   mongodb,
+//   git,
+//   figma,
+//   docker,
+//   meta,
+//   starbucks,
+//   tesla,
+//   shopify,
+//   carrent,
+//   jobit,
+//   tripguide,
+//   threejs,
+// } from "../assets";
+
+import terraform from "../assets/terraform.png";
 
 export const navLinks = [
   {
@@ -31,94 +33,24 @@ export const navLinks = [
     title: "About",
   },
   {
+    id: "tech",
+    title: "Tech",
+  },
+  {
     id: "work",
     title: "Work",
-  },
+  }, 
   {
     id: "contact",
     title: "Contact",
   },
 ];
 
-const services = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Content Creator",
-    icon: creator,
-  },
-];
-
-const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
-];
 
 const experiences = [
   {
     title: "React.js Developer",
     company_name: "Starbucks",
-    icon: starbucks,
     iconBg: "#383E56",
     date: "March 2020 - April 2021",
     points: [
@@ -131,7 +63,7 @@ const experiences = [
   {
     title: "React Native Developer",
     company_name: "Tesla",
-    icon: tesla,
+    // icon: tesla,
     iconBg: "#E6DEDD",
     date: "Jan 2021 - Feb 2022",
     points: [
@@ -144,7 +76,7 @@ const experiences = [
   {
     title: "Web Developer",
     company_name: "Shopify",
-    icon: shopify,
+    // icon: shopify,
     iconBg: "#383E56",
     date: "Jan 2022 - Jan 2023",
     points: [
@@ -157,7 +89,7 @@ const experiences = [
   {
     title: "Full stack Developer",
     company_name: "Meta",
-    icon: meta,
+    // icon: meta,
     iconBg: "#E6DEDD",
     date: "Jan 2023 - Present",
     points: [
@@ -198,9 +130,9 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Terraform Template",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A Terraform template that automates the deployment of a web application on AWS, including EC2 instances and S3 storage.",
     tags: [
       {
         name: "react",
@@ -215,7 +147,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: terraform,
     source_code_link: "https://github.com/",
   },
   {
@@ -236,7 +168,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    // image: jobit,
     source_code_link: "https://github.com/",
   },
   {
@@ -257,9 +189,9 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    // image: tripguide,
     source_code_link: "https://github.com/",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { experiences, testimonials, projects };

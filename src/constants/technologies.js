@@ -24,12 +24,12 @@ export const technologies = [
     {
       name: "Amazon Web Services",
       icon: aws,
-      level: 60,
+      level: 50,
     },
     {
       name: "Azure",
       icon: azure,
-      level: 65,
+      level: 50,
     },
     {
       name: "Django",
@@ -69,7 +69,7 @@ export const technologies = [
     {
       name: "Jenkins",
       icon: jenkins,
-      level: 55,
+      level: 50,
     },
     {
       name: "Kubernetes",
@@ -109,7 +109,7 @@ export const technologies = [
     {
       name: "Terraform",
       icon: terraform,
-      level: 60,
+      level: 70,
     },
     {
       name: "TypeScript",

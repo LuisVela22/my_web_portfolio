@@ -18,7 +18,6 @@ const styles = {
   profileImage:
     "w-48 h-48 rounded-full border-4 border-[#1E40AF] shadow-xl object-cover object-[center_35%] transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:border-[#3B82F6]",
   
-  
 };
 
 

@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
@@ -37,7 +36,6 @@ const Contact = () => {
 
       setLoading(false);
       alert("Thank you! I'll get back to you soon.");
-
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
       setLoading(false);
@@ -47,72 +45,72 @@ const Contact = () => {
   };
 
   return (
-    <div className='xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden justify-center items-center'>
-      {/* FORM */}
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
-      >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+    <motion.div
+      variants={slideIn("up", "tween", 0.2, 1)}
+      className='w-full flex justify-center items-center'
+    >
+      <div className='w-full max-w-3xl bg-white/10 backdrop-blur-md shadow-2xl rounded-3xl p-10 border border-white/20'>
+        <div className='mb-10 text-center'>
+          <p className='text-lg text-secondary font-medium'>Let’s talk</p>
+          <h3 className='text-3xl sm:text-4xl font-bold text-white mt-2'>
+            Send me a message
+          </h3>
+        </div>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
+          className='flex flex-col gap-6'
         >
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-2'>Your Name</span>
+          <div>
+            <label className='block text-white mb-1 font-medium'>Your Name</label>
             <input
               required
               type='text'
               name='name'
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-              aria-label='Your Name'
+              placeholder='John Doe'
+              className='w-full px-5 py-3 rounded-xl bg-white/10 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all'
             />
-          </label>
+          </div>
 
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-2'>Your Email</span>
+          <div>
+            <label className='block text-white mb-1 font-medium'>Your Email</label>
             <input
               required
               type='email'
               name='email'
               value={form.email}
               onChange={handleChange}
-              placeholder='example@email.com'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-              aria-label='Your Email'
+              placeholder='you@example.com'
+              className='w-full px-5 py-3 rounded-xl bg-white/10 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all'
             />
-          </label>
+          </div>
 
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-2'>Your Message</span>
+          <div>
+            <label className='block text-white mb-1 font-medium'>Message</label>
             <textarea
               required
-              rows={6}
               name='message'
+              rows='6'
               value={form.message}
               onChange={handleChange}
-              placeholder='What do you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium resize-none'
-              aria-label='Your Message'
+              placeholder='Tell me something...'
+              className='w-full px-5 py-3 rounded-xl bg-white/10 text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none'
             />
-          </label>
+          </div>
 
           <button
             type='submit'
             disabled={loading}
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary transition-all hover:bg-tertiary/80 disabled:opacity-50'
+            className='bg-blue-600 hover:bg-blue-500 transition-all text-white font-bold py-3 px-8 rounded-xl shadow-md disabled:opacity-50'
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 

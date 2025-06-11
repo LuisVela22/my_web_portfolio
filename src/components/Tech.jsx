@@ -1,44 +1,68 @@
 import React from "react";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import { motion } from "framer-motion";
+
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants/technologies";
 import { styles } from "../styles";
+import { textVariant, fadeIn } from "../utils/motion";
+
+const getExperienceLevel = (level) => {
+  if (level > 75) return "Expert";
+  if (level > 50) return "Advanced";
+  if (level > 25) return "Intermediate";
+  return "Beginner";
+};
+
+const getLevelColor = (level) => {
+  if (level > 75) return "bg-blue-500";
+  if (level > 50) return "bg-green-500";
+  if (level > 25) return "bg-yellow-500";
+  return "bg-red-500";
+};
 
 const Tech = () => {
   return (
+    <>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText}`}>Skills & Tools</p>
+        <h2 className={`${styles.sectionHeadText}`}>Technologies.</h2>
+      </motion.div>
 
-    <div className="flex flex-wrap justify-center gap-10">
-      {technologies.map((tech) => (
-        <div key={tech.name} className="flex flex-col items-center w-28 hover:scale-105 transition-transform duration-300">
-          <div className="w-28 h-28">
-            <CircularProgressbar
-              value={tech.level}
-              text={`${tech.level}%`}
-              styles={buildStyles({
-                pathColor: "#3b82f6", // azul tailwind
-                textColor: "#fff",
-                trailColor: "#1e293b",
-                textSize: "22px", // Ajustar el tamaño del texto
-                pathTransitionDuration: 0.5, // Añadir animación suave
-              })}
-            />
-          </div>
-          <div className="mt-2 flex flex-col items-center">
+      <motion.p
+        variants={fadeIn("", "", 0.1, 1)}
+        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+      >
+        Here are the technologies I use regularly in my projects. Each one is a key part of my frontend and backend workflow, from programming languages and frameworks to tools and platforms.
+      </motion.p>
+
+      {/* Barras horizontales de nivel */}
+      <div className="mt-16 flex flex-wrap justify-center gap-10">
+        {technologies.map((tech) => (
+          <div
+            key={tech.name}
+            className="flex flex-col items-center w-40 hover:scale-105 transition-transform duration-300"
+          >
             <img
               src={tech.icon}
               alt={tech.name}
-              className="w-8 h-8 mb-1"
-              style={{ filter: 'invert(1)' }} // Invierte el color del ícono
+              className="w-10 h-10 mb-2"
+              style={{ filter: "invert(1)" }}
             />
-
-
-            <p className="text-white text-sm text-center">{tech.name}</p>
+            <p className="text-white text-sm text-center mb-1">{tech.name}</p>
+            <div className="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+              <div
+                style={{ width: `${tech.level}%` }}
+                className={`h-full ${getLevelColor(tech.level)} rounded-full`}
+              ></div>
+            </div>
+            <p className="text-xs text-center mt-1 text-gray-400">
+              {getExperienceLevel(tech.level)}
+            </p>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };
 
-export default SectionWrapper(Tech, "");
+export default SectionWrapper(Tech, "tech");
